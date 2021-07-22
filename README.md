@@ -1,5 +1,7 @@
 # lp_course_slider
 
+This plugin will work perfectly with LearnPress and Jost theme.
+
 ## Install
 - download plugin
 - Add new plugin
