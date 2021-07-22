@@ -9,3 +9,5 @@
 ## Use shortcode 
 
 Use Short code for display this slider any where in to your page.
+
+```[lp_course_slider]```
