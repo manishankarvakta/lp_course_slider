@@ -2,6 +2,8 @@
 
 This plugin will work perfectly with LearnPress and Jost theme.
 
+![Slider Preview](https://raw.github.com/manishankarvakta/lp_course_slider/master/img/cover.png)
+
 ## Install
 - download plugin
 - Add new plugin
