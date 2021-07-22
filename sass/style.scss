@@ -1,0 +1,122 @@
+// Slider Stylesheet
+.splide__list{
+    margin-left: -27px !important;
+    .splide__slide{
+        width: 347px !important;
+        margin: 0 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        article{
+            width: 100%;
+            display: inline-block;
+            .course-entry-thumbnail{
+                color: #fff;
+                position: relative;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+                overflow: hidden;
+                text-align: center;
+                line-height: 0;
+                img{
+                    display: block;
+                    opacity: 1;
+                    width: 100%;
+                    transition: opacity .35s;
+                    height: 240px;
+                    object-fit: cover;
+                    border-top-left-radius: 10px;
+                    border-top-right-radius: 10px;
+                }
+            }
+            .course-detail-box-slider{
+                background-color: #FFFFFF;
+                padding: 30px;
+                min-height: 212px;
+                width: 100%;
+                float: left;
+                box-shadow: none;
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+                background-image: url(../img/bg-single.jpg);
+                background-repeat: no-repeat;
+                object-fit: cover;
+                background-position: bottom right;
+                .data-course{
+                    color: #787878;
+                    padding-bottom: 15px;
+                    .single_course_meta_data_content{
+                        margin-right: 15px;
+                    }
+                    .course-entry-title{
+                        a{
+                            font-size: 24px !important;
+                            font-weight: 500 !important;
+                            line-height: 30px !important;
+                            color: #333333;
+                        }
+                    }
+                }
+                .course-read-more{
+                    display: flex;
+                    align-items: center;
+                    font-size: 14px;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    a{
+                        color:#0067da;
+                    }
+                }
+                .price{
+                    color: #0067da;
+                    font-size: 22px;
+                    font-weight: 500;
+                }
+            }
+            .course-detail-box-slider:hover{
+                box-shadow: 0px 3px 8px 0px rgba(0, 0, 0,0.09);
+            }
+        }
+    }
+}
+
+
+.splide__pagination{
+    .splide__pagination__page{
+        background-color: #bac6d3 !important;
+    }
+
+    .is-active{
+        background-color: #0067da !important;
+    }
+}
+
+
+
+// Category StyleSheet
+
+.category_wrapper{
+    ul.cat_list{
+        margin: 50px 0 30px;
+        padding: 0;
+
+        li.cat-item {
+            list-style: none;
+            display: inline-block;
+            margin: 15px 10px;
+            padding: 10px 25px;
+            border:1px solid #787878;
+            cursor: pointer;
+            -webkit-transition: all .5s ease-in ease-out;
+            -moz-transition: all .5s ease-in ease-out;
+            -o-transition: all .5s ease-in ease-out;
+            transition: all .5s ease-in ease-out;
+        }
+        li.active, li.cat-item:hover{
+            background-color: #0067da !important;
+            border:1px solid #0067da;
+            color: #ffffff;
+
+        }
+    }
+}
+

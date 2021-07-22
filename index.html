@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hi</h1>
+    <div class="splide">
+        <div class="splide__track">
+            <ul class="splide__list">
+                <li class="splide__slide">
+                    <img src="https://cdn.elearningindustry.com/wp-content/uploads/2020/08/5-ways-to-improve-your-course-cover-design-1024x575.png" width="75%">
+                    <p>Slide 01</p>                
+                </li>
+                <li class="splide__slide">
+                    <img src="https://cdn.elearningindustry.com/wp-content/uploads/2020/08/5-ways-to-improve-your-course-cover-design-1024x575.png" width="75%">
+                    <p>Slide 02</p>
+                </li>
+                <li class="splide__slide">
+                    <img src="https://cdn.elearningindustry.com/wp-content/uploads/2020/08/5-ways-to-improve-your-course-cover-design-1024x575.png" width="75%">
+                    <p>Slide 03</p>
+                </li>
+                <li class="splide__slide"><img src="https://cdn.elearningindustry.com/wp-content/uploads/2020/08/5-ways-to-improve-your-course-cover-design-1024x575.png" width="75%">
+                    <p>Slide 04</p>
+                </li>
+                <li class="splide__slide"><img src="https://cdn.elearningindustry.com/wp-content/uploads/2020/08/5-ways-to-improve-your-course-cover-design-1024x575.png" width="75%">
+                    <p>Slide 05</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+<script>
+    document.addEventListener( 'DOMContentLoaded', function () {
+    new Splide( '.splide',{
+        type      : 'loop',
+        perPage   : 3,
+        height    : '15rem',
+        cover     : false,
+        breakpoins: {
+            640: {
+                height: '6rem',
+            }
+        }
+    }
+     ).mount();
+} );
+
+</script>
+</html>
