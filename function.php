@@ -34,37 +34,44 @@ add_action( 'wp_footer', 'my_plugin_assets' );
 
  // create shortCode
 function slider_shotCode( $atts ){
-    
-    getCourseSlider();
+    $a = shortcode_atts( array(
+		'cat' => '0',
+		'filter' => 'true',
+	), $atts );
+    getCourseSlider($a['cat'], $a['filter']);
 }
 add_shortcode( 'lp_course_slider', 'slider_shotCode' );
 
 
 
 // getCourseSlider
-function getCourseSlider(){
+function getCourseSlider($cat = NULL, $filter = NULL){
 
     // courseSliderArray
-    $course = getCourseByTerms();
+    $course = getCourseByTerms($cat);
 
+    // var_dump($cat.'-'.$filter);
+    // var_dump($course);
 
     // getCategories
     $cat = getCategory();
     
-    // create cat view
-    $cat_view = '';
-    $cat_view .= '<div class="category_wrapper">';
-    $cat_view .= '<ul class="cat_list">';
-    $cat_view .= '<li class="cat-item active" id="all">';
-    $cat_view .= '<b>All</b>';
-    $cat_view .= '</li>';
-    foreach($cat as $c){
-        $cat_view .= '<li class="cat-item"  id="'.$c->term_id.'">';
-        $cat_view .=  $c->name;
+    if($filter == 'true'){
+        // create cat view
+        $cat_view = '';
+        $cat_view .= '<div class="category_wrapper">';
+        $cat_view .= '<ul class="cat_list">';
+        $cat_view .= '<li class="cat-item active" id="all">';
+        $cat_view .= '<b>All</b>';
         $cat_view .= '</li>';
+        foreach($cat as $c){
+            $cat_view .= '<li class="cat-item"  id="'.$c->term_id.'">';
+            $cat_view .=  $c->name;
+            $cat_view .= '</li>';
+        }
+        $cat_view .= '</ul>';
+        $cat_view .= '</div>';
     }
-    $cat_view .= '</ul>';
-    $cat_view .= '</div>';
 
 
     // create one array with all course
@@ -130,24 +137,38 @@ function getCourseSlider(){
 
 
 // get course by categories
-function getCourseByTerms(){
+function getCourseByTerms($cat = NULL ){
     global $wpdb;
     
-    $categories = getCategory();
     $posts_array = array();
-    foreach($categories as $category){
-        // get_post_by_terms
-        $posts = get_terms_post($category->term_id);  
-            
-            foreach($posts as $post){
-                $post->term_id = $category->term_id;
-                // $id = ['term_id'=>;
-                // $post = array_push($post, $id);
-                if($post->post_type == 'lp_course'){
-                    array_push($posts_array, $post);
+
+    if($cat == '0'){
+        $categories = getCategory();
+        foreach($categories as $category){
+            // get_post_by_terms
+            $posts = get_terms_post($category->term_id);  
+                
+                foreach($posts as $post){
+                    $post->term_id = $category->term_id;
+                    // $id = ['term_id'=>;
+                    // $post = array_push($post, $id);
+                    if($post->post_type == 'lp_course'){
+                        array_push($posts_array, $post);
+                    }
                 }
+            
+        }
+    }else{
+        $posts = get_terms_post($cat);
+            // var_dump ($posts);
+        foreach($posts as $post){
+            $post->term_id = $category->term_id;
+            // $id = ['term_id'=>;
+            // $post = array_push($post, $id);
+            if($post->post_type == 'lp_course'){
+                array_push($posts_array, $post);
             }
-        
+        }
     }
     return $posts_array; 
 }
